@@ -33,21 +33,21 @@ struct ContentView: View {
                         .fontWeight(.bold)
                         .padding(.bottom, 100)
                         
-//                    Text("継続回数:\(settings.count)")
-//                        .foregroundColor(Color.white)
-//                        .fontWeight(.bold)
-//
-//                        .padding(.top)
-//                    Button(action: {
-//                        print("達成")
-//                    }) {
-//                        Text("達成")
-//                            .foregroundColor(Color.mint)
-//                            .frame(width: 160, height: 40)
-//                            .background(Color.white)
-//                            .cornerRadius(25)
-//                            .padding()
-//                    }
+                    Text("継続回数:\(settings.count)")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+
+                        .padding(.top)
+                    Button(action: {
+                        print("達成")
+                    }) {
+                        Text("達成")
+                            .foregroundColor(Color.mint)
+                            .frame(width: 160, height: 40)
+                            .background(Color.white)
+                            .cornerRadius(25)
+                            .padding()
+                    }
                     Text("アラームをセットする")
                         .foregroundColor(Color.white)
                         .fontWeight(.medium)
