@@ -9,6 +9,9 @@ import Foundation
 import UserNotifications
 
 class UserSetting: ObservableObject {
+    //全体で同じコストラクターを使うためにstatic必須
+    //AppDelegateからの変更にも対応可能
+    static let shared = UserSetting()
     let alarmTime = AlarmTime()
     @Published var content : String {
         didSet {
@@ -49,11 +52,16 @@ class UserSetting: ObservableObject {
         }
     }
     
+    @Published var isNotificationTapped : Bool {
+        didSet{
+            UserDefaults.standard.set(isNotificationTapped, forKey: "isNotificationTapped")
+        }
+    }
+    
     init(){
         content = UserDefaults.standard.string(forKey: "content") ?? ""
         hourAndMinute = UserDefaults.standard.object(forKey: "hourAndMinute") as? Date ?? Date()
-        
-        
+        isNotificationTapped = UserDefaults.standard.bool(forKey: "isNotificationTapped")
         count = UserDefaults.standard.object(forKey: "count") as? Int ?? 0
         isOn = UserDefaults.standard.bool(forKey: "isOn")
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: hourAndMinute)
